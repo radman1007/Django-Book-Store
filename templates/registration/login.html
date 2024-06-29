@@ -7,5 +7,8 @@
         {{ form|crispy }}
         <button class="btn btn-success mt-3" type="sunmit">Login</button>
     </form>
+    <br>
     <a href="{% url "password_reset" %}">Forgot Password</a>
+    <br>
+    <a href="{% url "signup" %}">Create Account!</a>
 {% endblock content %}
