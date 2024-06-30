@@ -4,7 +4,7 @@
 {% block content %}
     <form action="" method="post">
         {% csrf_token %}
-        <h1>Delete {{ post.title }}</h1>
+        <h1>Delete: {{ book.title }}</h1>
         <p>Are you sure?</p>
         <button class="btn btn-secondary mt-3" type="sunmit">Delete</button>
     </form>
