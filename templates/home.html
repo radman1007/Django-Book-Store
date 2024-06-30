@@ -2,12 +2,14 @@
 {% block page_title %}Home{% endblock page_title %}
 {% block content %}
     <h1>Home</h1>
-    {% if user.is_authenticated %}
-        <p>Welcome {{ user.username }} | <form action="{% url "logout" %}" method="post">
+    <div>
+        {% if user.is_authenticated %}
+            <form class="btn" action="{% url "logout" %}" method="post">
             {% csrf_token %}
             <input type="submit" value="logout">
-        </form></p>
-    {% else %}
-        <a href="{% url 'login' %}">Log In</a> | <a href="{% url "signup" %}">Sign Up</a>
-    {% endif %}
+            </form>
+        {% else %}
+            <a class="btn" style="background-color: #e3f2fd;" href="{% url 'login' %}">Log In</a>  <a class="btn" style="background-color: #e3f2fd;"href="{% url "signup" %}">Sign Up</a>
+        {% endif %}
+    </div>
 {% endblock content %}
