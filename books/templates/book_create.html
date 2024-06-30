@@ -1,1 +1,12 @@
 {% extends "_base.html" %}
+{% block title %}اضافه کردن کتاب{% endblock title %}
+{% block content %}
+    <div class="card">
+        <h5 class="card-header">Author: {{ book.author }}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">{{ book.description }}</p>
+            <a href="#" class="btn btn-primary">{{ book.price }}</a>
+        </div>
+    </div>
+{% endblock content %}
