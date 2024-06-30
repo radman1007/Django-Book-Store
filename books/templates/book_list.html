@@ -8,7 +8,7 @@
             <div class="card-body">
             <h5 class="card-title">{{ book.title }}</h5>
             <p class="card-text">{{ book.description|truncatechars_html:35 }}</p>
-            <a href="#" class="btn btn-primary">More</a>
+            <a href="{% url "book_detail" book.id %}" class="btn btn-primary">More</a>
             </div>
         </div>
     {% endfor %}
