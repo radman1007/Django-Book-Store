@@ -1,9 +1,16 @@
 {% extends "_base.html" %}
 {% block page_title %}لیست کتاب ها{% endblock page_title %}
 {% block content %}
+<div class="d-flex justify-content-center mt-3">
     {% for book in books %}
-    <div class="cart">
-        <h1>{{ book.title }}</h1>
-    </div>
+        <div class="card" style="width: 18rem;">
+            {% comment %} <img class="card-img-top" src="..." alt="Card image cap"> {% endcomment %}
+            <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">{{ book.description|truncatechars_html:35 }}</p>
+            <a href="#" class="btn btn-primary">More</a>
+            </div>
+        </div>
     {% endfor %}
+</div>
 {% endblock content %}
