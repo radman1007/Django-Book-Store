@@ -7,7 +7,7 @@
             {% comment %} <img class="card-img-top" src="..." alt="Card image cap"> {% endcomment %}
             <div class="card-body">
                 <h5 class="card-title">{{ book.title|capfirst }}</h5>
-                <p class="card-text">{{ book.description|truncatechars_html:35 }}</p>
+                <p class="card-text">{{ book.description|truncatechars:35 }}</p>
                 <a href="{{ book.get_absolute_url }}" class="btn btn-primary">More</a>
             </div>
         </div>
