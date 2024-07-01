@@ -5,7 +5,7 @@
         <h5 class="card-header">Author: {{ book.author }}</h5>
         <div class="card-body">
             <h5 class="card-title">{{ book.title|capfirst }}</h5>
-            <p class="card-text">{{ book.description }}</p>
+            <p class="card-text">{{ book.description|linebreaks }}</p>
             <a href="#" class="btn btn-primary">{{ book.price }}</a>
         </div>
     </div>
