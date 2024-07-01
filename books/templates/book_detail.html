@@ -1,8 +1,9 @@
 {% extends "_base.html" %}
+{% load book_tags %}
 {% block title %}کتاب {{ book.title }}{% endblock title %}
 {% block content %}
     <div class="card">
-        <h5 class="card-header">Author: {{ book.author }}</h5>
+        <h5 class="card-header">{{ book.author|get_up:'Author'}}</h5>
         <div class="card-body">
             <h5 class="card-title">{{ book.title|capfirst }}</h5>
             <p class="card-text">{{ book.description|linebreaks }}</p>
