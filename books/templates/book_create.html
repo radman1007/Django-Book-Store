@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 {% block title %}اضافه کردن کتاب{% endblock title %}
 {% block content %}
-<form action="{% url "book_create" %}" method="post" class="needs-validation mx-3" novalidate>
+<form action="{% url "book_create" %}" method="post" class="needs-validation mx-3" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <div class="form-row">
       <div class="col-md-4 mb-3">
@@ -34,10 +34,7 @@
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationCustom05">Cover</label>
-        <input type="image" name="price" step="0.01" class="form-control" id="validationCustom05" required>
-        <div class="invalid-feedback">
-          Please provide a valid Price.
-        </div>
+        <input type="file" name="cover" class="form-control" id="validationCustom05">
       </div>
     </div>
     <button class="btn btn-primary" type="submit">Submit form</button>
