@@ -9,7 +9,7 @@
             <p class="card-text">{{ book.description|linebreaks }}</p>
             <a href="#" class="btn btn-primary">{{ book.price }}</a>
             {% if book.cover %}
-                <img width="150" height="230" src="{{ book.cover.url }}" alt="">
+                <img class="shadow" width="150" height="230" src="{{ book.cover.url }}" alt="">
             {% endif %}
         </div>
     </div>
