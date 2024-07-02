@@ -8,7 +8,9 @@
             <h5 class="card-title">{{ book.title|capfirst }}</h5>
             <p class="card-text">{{ book.description|linebreaks }}</p>
             <a href="#" class="btn btn-primary">{{ book.price }}</a>
-            <img width="150" height="230" src="{{ book.cover.url }}" alt="">
+            {% if book.cover %}
+                <img width="150" height="230" src="{{ book.cover.url }}" alt="">
+            {% endif %}
         </div>
     </div>
     <div class="mt-2 mx-2">
