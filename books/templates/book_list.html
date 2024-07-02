@@ -5,7 +5,7 @@
     {% for book in books %}
         <div class="card mx-1" style="width: 18rem;">
             {% if book.cover %}
-                <img class="card-img-top" src"{{ book.cover.url }}" alt="Card image cap">
+                <img height="350" class="card-img-top" src="{{ book.cover.url }}" alt="">
             {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{ book.title|capfirst }}</h5>
