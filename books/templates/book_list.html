@@ -4,7 +4,9 @@
 <div class="d-flex justify-content-center mt-3">
     {% for book in books %}
         <div class="card mx-1" style="width: 18rem;">
-            {% comment %} <img class="card-img-top" src="..." alt="Card image cap"> {% endcomment %}
+            {% if book.cover %}
+                <img class="card-img-top" src"{{ book.cover.url }}" alt="Card image cap">
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{ book.title|capfirst }}</h5>
                 <p class="card-text">{{ book.description|truncatechars:35 }}</p>
