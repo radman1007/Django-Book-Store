@@ -10,7 +10,7 @@ from django.db.models import Q
 def list_view(request):
     books = Book.objects.all()
     paginator = Paginator(books, 2)
-    page_number = request.GET.get("page")
+    page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     if request.method == 'POST':
         search_query = request.POST['search_query']
