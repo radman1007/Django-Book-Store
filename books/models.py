@@ -15,5 +15,5 @@ class Book(models.Model):
         return reverse("book_detail", args={self.id})
     
     
-class Comment(models.Model):
+# class Comment(models.Model):
     
