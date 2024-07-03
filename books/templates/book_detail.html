@@ -3,6 +3,7 @@
 {% block title %}کتاب {{ book.title }}{% endblock title %}
 {% block content %}
     <div class="card">
+        <h5 class="card-header">Creator {{ book.user.username|capfirst }}</h5>
         <h5 class="card-header">{{ book.author|get_up:'Author'}}</h5>
         <div class="card-body">
             <h5 class="card-title">{{ book.title|capfirst }}</h5>
