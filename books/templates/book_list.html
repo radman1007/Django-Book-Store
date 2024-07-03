@@ -16,6 +16,7 @@
                     <img height="350" class="card-img-top shadow" src="{{ book.cover.url }}" alt="">
                 {% endif %}
                 <div class="card-body">
+                    <h5 class="card-title">{{ book.author }}</h5>
                     <h5 class="card-title">{{ book.title|capfirst }}</h5>
                     <p class="card-text">{{ book.description|truncatechars:35 }}</p>
                     <a href="{{ book.get_absolute_url }}" class="btn btn-primary">More</a>
@@ -29,6 +30,7 @@
                     <img height="350" class="card-img-top shadow" src="{{ book.cover.url }}" alt="">
                 {% endif %}
                 <div class="card-body">
+                    <h5 class="card-title">{{ book.author }}</h5>
                     <h5 class="card-title">{{ book.title|capfirst }}</h5>
                     <p class="card-text">{{ book.description|truncatechars:35 }}</p>
                     <a href="{{ book.get_absolute_url }}" class="btn btn-primary">More</a>
