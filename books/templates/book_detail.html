@@ -31,9 +31,9 @@
             <div class="border-bottom mb-3">
                 <h5 class="mb-3">{{ comment.user.username }}</h5>
                 {% if comment.recommend %}
-                    👍🏻
+                    ✅👍🏻
                 {% else %}
-                    👎🏻
+                    ❌👎🏻
                 {% endif %}
                 <p>{{ comment.text|linebreaks }}</p>
             </div>
