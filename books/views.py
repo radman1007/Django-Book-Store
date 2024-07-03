@@ -11,6 +11,17 @@ class BookListView(generic.ListView):
     paginate_by = 2
     template_name = 'book_list.html'
     context_object_name = 'books'
+    
+def list_view(request):
+    books = Book.objects.all()
+    paginator = Paginator(books, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'books' : books,
+        'page_obj' : page_obj,
+    }
+    return render(request, 'book_list.html', context)
 
 
 def book_detail_view(request, pk):
