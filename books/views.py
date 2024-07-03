@@ -9,13 +9,17 @@ from django.db.models import Q
 
 def list_view(request):
     books = Book.objects.all()
-    paginator = Paginator(books, 2)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
     if request.method == 'POST':
         search_query = request.POST['search_query']
         books = Book.objects.filter(Q(author__icontains=search_query)|Q(title__icontains=search_query))
-        return render(request, 'book_list.html', {'books' : books, 'query' : search_query})
+        context = {
+            'books' : books,
+            'page_obj' : page_obj,
+            }
+        return render(request, 'book_list.html', context)
+    paginator = Paginator(books, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'books' : books,
         'page_obj' : page_obj,
