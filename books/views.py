@@ -44,6 +44,10 @@ class BookUpdateView(LoginRequiredMixin, generic.UpdateView):
     fields = ['title', 'author', 'description', 'price', 'cover']
     template_name = 'book_update.html'
     
+    def test_func(self):
+        obj = self.get_object()
+        return obj.user == self.request.user
+    
     
 class BookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Book
