@@ -11,15 +11,16 @@ class BookListView(generic.ListView):
     context_object_name = 'books'
 
 
-# class BookDetailView(generic.DetailView):
-#     model = Book
-#     template_name = 'book_detail.html'
-
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk)
     comments = book.comments.all()
     if request.method=='POST':
-        pass
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.book = book
+            new_comment.user = request.user
+            
     else:
         comment_form = CommentForm()
     context = {
