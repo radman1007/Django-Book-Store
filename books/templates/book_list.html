@@ -9,7 +9,7 @@
 {% endblock search_form %}
 {% block content %}
 <div class="d-flex justify-content-center flex-wrap mt-3">
-    {% for book in books %}
+    {% for book in page_obj %}
         <div class="card mx-1" style="width: 18rem;">
             {% if book.cover %}
                 <img height="350" class="card-img-top shadow" src="{{ book.cover.url }}" alt="">
