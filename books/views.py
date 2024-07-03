@@ -16,7 +16,8 @@ class BookListView(generic.ListView):
 
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(request, 'book_detail.html', {'book': book})
+    comments = book.comments.all()
+    return render(request, 'book_detail.html', {'book': book, 'comment': comments})
     
     
 class BookCreateView(generic.CreateView):
