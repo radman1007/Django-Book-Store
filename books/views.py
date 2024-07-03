@@ -11,12 +11,13 @@ def list_view(request):
     books = Book.objects.all()
     if request.method == 'POST':
         search_query = request.POST['search_query']
-        books = Book.objects.filter(Q(author__icontains=search_query)|Q(title__icontains=search_query))
-        context = {
-            'books' : books,
-            'query' : search_query,
-            }
-        return render(request, 'book_list.html', context)
+        if len(search_query) >= 1:
+            books = Book.objects.filter(Q(author__icontains=search_query)|Q(title__icontains=search_query))
+            context = {
+                'books' : books,
+                'query' : search_query,
+                }
+            return render(request, 'book_list.html', context)
     paginator = Paginator(books, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
