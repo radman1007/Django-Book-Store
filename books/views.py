@@ -33,7 +33,7 @@ def book_detail_view(request, pk):
     return render(request, 'book_detail.html', context)
     
     
-class BookCreateView(LoginRequiredMixin, generic.CreateView):
+class BookCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     model = Book
     fields = ['title', 'author', 'description', 'price', 'cover']
     template_name = 'book_create.html'
