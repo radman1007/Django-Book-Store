@@ -6,12 +6,13 @@ from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.paginator import Paginator
 
-class BookListView(generic.ListView):
-    model = Book
-    paginate_by = 2
-    template_name = 'book_list.html'
-    context_object_name = 'books'
+# class BookListView(generic.ListView):
+#     model = Book
+#     paginate_by = 2
+#     template_name = 'book_list.html'
+#     context_object_name = 'books'
     
+
 def list_view(request):
     books = Book.objects.all()
     paginator = Paginator(books, 2)
