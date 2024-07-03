@@ -14,7 +14,7 @@ def list_view(request):
         books = Book.objects.filter(Q(author__icontains=search_query)|Q(title__icontains=search_query))
         context = {
             'books' : books,
-            'page_obj' : page_obj,
+            'query' : search_query,
             }
         return render(request, 'book_list.html', context)
     paginator = Paginator(books, 2)
