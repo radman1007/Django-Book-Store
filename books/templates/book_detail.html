@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    {% if book.user==user %}
+    {% if book.user == user %}
     <div class="mt-2 mx-2">
         <a class="" href="{% url "book_delete" book.id %}">
             <button type="button" class="btn btn-secondary">Delete</button>
