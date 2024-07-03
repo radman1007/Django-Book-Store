@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from .forms import CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 # class BookListView(generic.ListView):
 #     model = Book
@@ -15,6 +16,8 @@ from django.core.paginator import Paginator
 
 def list_view(request):
     books = Book.objects.all()
+    if request.method == 'POST':
+        
     paginator = Paginator(books, 2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
