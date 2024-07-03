@@ -21,6 +21,7 @@ def book_detail_view(request, pk):
             new_comment.book = book
             new_comment.user = request.user
             new_comment.save()
+            comment_form = CommentForm()
     else:
         comment_form = CommentForm()
     context = {
