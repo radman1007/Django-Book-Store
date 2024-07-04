@@ -2,7 +2,7 @@ from .models import Book
 from django.views import generic
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404, render
-from .forms import CommentForm
+from .forms import CommentForm, BookForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -50,10 +50,13 @@ def book_detail_view(request, pk):
     return render(request, 'book_detail.html', context)
     
     
-class BookCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Book
-    fields = ['title', 'author', 'description', 'price', 'cover']
-    template_name = 'book_create.html'
+# class BookCreateView(LoginRequiredMixin, generic.CreateView):
+#     model = Book
+#     fields = ['title', 'author', 'description', 'price', 'cover']
+#     template_name = 'book_create.html'
+
+def book_create_view(request):
+    return render(request, 'book_create.html')
 
     
 class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
