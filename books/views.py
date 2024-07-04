@@ -19,7 +19,7 @@ def list_view(request):
                 'query' : search_query,
                 }
             return render(request, 'book_list.html', context)
-    paginator = Paginator(books, 2)
+    paginator = Paginator(books, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
