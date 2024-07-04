@@ -1,7 +1,7 @@
 from .models import Book
 from django.views import generic
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from .forms import CommentForm, BookForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
@@ -54,9 +54,21 @@ def book_detail_view(request, pk):
 #     model = Book
 #     fields = ['title', 'author', 'description', 'price', 'cover']
 #     template_name = 'book_create.html'
-
+@login_required()
 def book_create_view(request):
-    return render(request, 'book_create.html')
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            new_book = form.save(commit=False)
+            new_book.user = request.user
+            new_book.save()
+            comment_form = CommentForm()
+            return redirect('home')
+    form = BookForm()
+    context = {
+        'form' : form
+    }
+    return render(request, 'book_create.html', context)
 
     
 class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):

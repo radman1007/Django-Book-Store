@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 {% block title %}اضافه کردن کتاب{% endblock title %}
 {% block content %}
-<form action="{% url "book_create" %}" method="post" class="needs-validation mx-3" enctype="multipart/form-data" novalidate>
+<form action="{% url "book_create" %}" method="POST" class="needs-validation mx-3" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <div class="form-row">
       <div class="col-md-4 mb-3">
