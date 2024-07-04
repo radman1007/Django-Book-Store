@@ -49,11 +49,7 @@ def book_detail_view(request, pk):
     }
     return render(request, 'book_detail.html', context)
     
-    
-# class BookCreateView(LoginRequiredMixin, generic.CreateView):
-#     model = Book
-#     fields = ['title', 'author', 'description', 'price', 'cover']
-#     template_name = 'book_create.html'
+
 @login_required()
 def book_create_view(request):
     if request.method == 'POST':
