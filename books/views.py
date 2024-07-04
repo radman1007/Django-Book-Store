@@ -58,7 +58,7 @@ def book_create_view(request):
             new_book = form.save(commit=False)
             new_book.user = request.user
             new_book.save()
-            return redirect('home')
+            return redirect('book_detail')
     form = BookForm()
     context = {
         'form' : form
